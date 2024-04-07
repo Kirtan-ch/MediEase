@@ -25,8 +25,27 @@
 
       {% block Styles %} {% endblock %}
 
-      <!-- CSS Customization -->
       <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+      <!-- CSS Customization -->
+      <!-- <style>
+        .mode {
+            float:right;
+        }
+        .change {
+            cursor: pointer;
+            border: 1px solid #555;
+            border-radius: 40%;
+            width: 20px;
+            text-align: center;
+            padding: 5px;
+            margin-left: 8px;
+        }
+        .dark{
+            background-color: #222;
+            color: #e6e6e6;
+        }
+    </style> -->
+      
 
   </head>
   <body>
@@ -73,11 +92,11 @@
                 <ul class="nav navbar-nav">
                   <!-- Collect the nav links, forms, and other content for toggling -->
                   <!-- Home  -->
-                  <li class="mega-menu-fullwidth">
+                  <!-- <li class="mega-menu-fullwidth">
                     <a href="/home" >
                     HOME
                     </a>
-                  </li>
+                  </li> -->
                   <!-- End Home-->
                   <!-- About Us -->
                   <li class="mega-menu-fullwidth">
@@ -154,6 +173,12 @@
                     </a>
             
                     </li>
+                    <!-- <li class="mega-menu-fullwidth">
+                      <div class="mode">
+                        Dark mode:             
+                        <span class="change">OFF</span>
+                      </div>
+                    </li> -->
                     <!-- End Appointment -->
             
                 </ul>
@@ -282,6 +307,41 @@
       <script type="text/javascript" src="{% static 'assets/plugins/jquery/jquery-migrate.min.js' %}"></script>
       <script type="text/javascript" src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
       <!-- JS Implementing Plugins -->
+      <script>
+        window.watsonAssistantChatOptions = {
+          integrationID: "15ef0d1b-c4cc-4bcb-b1a8-9cbf7594dac7", // The ID of this integration.
+          region: "au-syd", // The region your integration is hosted in.
+          serviceInstanceID: "9d5130ca-226a-4492-b67a-5da12b79d265", // The ID of your service instance.
+          onLoad: async (instance) => { await instance.render(); }
+        };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+          document.head.appendChild(t);
+        });
+      </script>
+
+<!-- <script>
+  $( ".change" ).on("click", function() {
+      if( $( "body" ).hasClass( "dark" )) {
+          $( ".wrapper" ).removeClass( "dark" );
+          $( ".container" ).removeClass( "dark" );
+          $( ".content" ).removeClass( "dark" );
+          $( "body" ).removeClass( "dark" );
+          $( ".row" ).removeClass( "dark" );
+          $( ".change" ).text( "OFF" );
+
+
+      } else {
+          $( ".wrapper" ).addClass( "dark" );
+          $( ".change" ).text( "ON" );
+          $( ".content" ).addClass( "dark" );
+          $( ".container" ).addClass( "dark" );
+          $( ".row" ).addClass( "dark" );
+          $( "body" ).addClass( "dark" );
+      }
+  });
+</script> -->
 
       
 {% block Scripts %} {% endblock %}
